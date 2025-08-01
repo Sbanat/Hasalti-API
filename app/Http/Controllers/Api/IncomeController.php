@@ -28,7 +28,6 @@ class IncomeController extends Controller
             ...$validated,
         ]);
 
-        // Update balance
         Balance::updateOrCreate(
             ['user_id' => $request->user()->id, 'currency' => $validated['currency']],
             ['amount' => \DB::raw("amount + {$validated['amount']}")]
