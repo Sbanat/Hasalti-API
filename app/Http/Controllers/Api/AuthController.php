@@ -10,7 +10,6 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    // تسجيل مستخدم جديد
     public function register(Request $request)
     {
         $validated = $request->validate([
@@ -34,7 +33,6 @@ class AuthController extends Controller
         ], 201);
     }
 
-    // تسجيل الدخول
     public function login(Request $request)
     {
         $validated = $request->validate([
@@ -59,7 +57,6 @@ class AuthController extends Controller
         ]);
     }
 
-    // تسجيل الخروج
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
@@ -69,7 +66,6 @@ class AuthController extends Controller
         ]);
     }
 
-    // جلب معلومات المستخدم
     public function me(Request $request)
     {
         return response()->json($request->user());
